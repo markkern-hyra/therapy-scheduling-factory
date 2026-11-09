@@ -26,6 +26,7 @@ export const MESSAGES = {
   LOGIN_MISSING: "Enter your email and password.",
   LOGIN_INVALID: "Invalid email or password.",
   NO_FREE_SLOTS: "No free slots on this day.",
+  INSURANCE_SAVED: "Insurance status saved.",
   UNKNOWN: "Something went wrong. Try again.",
 } as const;
 

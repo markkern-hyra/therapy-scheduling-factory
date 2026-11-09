@@ -137,7 +137,7 @@ Figtree через `next/font` (`--font-sans`) — теплий гуманіст
 | `BrandMark` | — | знак продукту: монограма «TS» на `primary`, `aria-hidden` (назва — поруч текстом) |
 | `LinkCard` | — | розділ застосунку плиткою на головній: іконка в колі `primary-soft`, назва (`primary`) і для чого розділ; наведення — межа `input` |
 | `EmptyState` | — | порожній список: іконка в колі `muted`, текст AC дослівно |
-| `Alert` | помилка | `role="alert"`, тло `destructive-soft`, іконка й текст дослівно з AC, над формою чи списком |
+| `Alert` | `variant`: `error` (типово), `success` | `error` — `role="alert"`, тло `destructive-soft`, іконка й текст дослівно з AC, над формою чи списком; `success` — `role="status"`, тло `primary-soft`, текст `card-foreground`, без іконки («Insurance status saved.») |
 | `NavLink` | — | пункт шапки з іконкою; поточний розділ — `aria-current="page"` і тло `primary-soft`, інші — `muted-foreground`; єдиний клієнтський (`"use client"`) компонент в `ui` — потребує `usePathname` |
 | Іконки (`icons.tsx`) | `SlotsIcon`, `ClientsIcon`, `HoldsIcon`, `ScheduleIcon`, `SignOutIcon`, `AddIcon`, `BackIcon`, `PreviousIcon`, `NextIcon`, `AlertIcon`, `TimeIcon`, `ClientIcon` | лінійні іконки `lucide-react`, 16px, товщина 1.9, `aria-hidden`; лише цей набір і завжди поруч із підписом — сенс несе текст |
 
