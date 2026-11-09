@@ -1,0 +1,281 @@
+{
+  "kind": "uat",
+  "generatedAt": "2026-11-09T21:21:39.257Z",
+  "baseURL": "https://therapy-scheduling-factory.vercel.app",
+  "deployedSha": "4652f92c903488701cf7a42bfb5cb233d0700578",
+  "testsCommit": "fa95cb25829f14dbb72424301fda0bf2e00206bf",
+  "reviewer": {
+    "model": "claude-haiku-5-5",
+    "disputes": "claude-sonnet-5-5"
+  },
+  "note": "Відео й траси не в git (test-results/ локально, артефакт CI). check-recordings конвеєра WS9 вимагає відео на диску — для нього цей manifest треба доповнити.",
+  "results": [
+    {
+      "id": "AC-INS-01",
+      "proof": "AC-INS-01",
+      "title": "AC-INS-01: статус ще ніхто не позначав — у картці «Insurance: Not set»",
+      "screenshot": "docs/qa/uat/2026-11-09/frames/AC-INS-01-then-1.png",
+      "video": "test-results/artifacts/insurance-планувальник-і-а-d9c0f--картці-«Insurance-Not-set»-chromium/video.webm",
+      "trace": "test-results/artifacts/insurance-планувальник-і-а-d9c0f--картці-«Insurance-Not-set»-chromium/trace.zip",
+      "asserted": true,
+      "vision": {
+        "met": true,
+        "readable": true,
+        "notes": "На кадрі сторінка картки Client Six, у шапці відображається «Scheduler One». У секції Insurance видно рядок «Insurance: Not set», текст збігається з критерієм посимвольно. Наявність запису в базі (client_insurance) не оцінювалась, бо це не видно на кадрі."
+      },
+      "agentModel": "claude-haiku-5-5",
+      "agentVerdicts": {
+        "claude-haiku-5-5": "PASS",
+        "claude-sonnet-5-5": null
+      },
+      "escalated": false,
+      "quotesVerified": [
+        {
+          "quote": "Scheduler One",
+          "onPage": true
+        },
+        {
+          "quote": "Client Six",
+          "onPage": true
+        },
+        {
+          "quote": "Insurance: Not set",
+          "onPage": true
+        }
+      ],
+      "verdict": "PASS",
+      "factoryGate": "PASS",
+      "rule": "R6: перевірки, агент і цитати збігаються",
+      "playwrightMs": 2231,
+      "reviewCostUsd": 0.00241,
+      "reviewWallMs": 7412
+    },
+    {
+      "id": "AC-INS-02",
+      "proof": "AC-INS-02",
+      "title": "AC-INS-02: scheduler1 позначає «Verified» — «Insurance status saved.», і після повторного відкриття «Insurance: Verified»",
+      "screenshot": "docs/qa/uat/2026-11-09/frames/AC-INS-02-then-1.png",
+      "video": "test-results/artifacts/insurance-планувальник-і-а-20fd7-криття-«Insurance-Verified»-chromium/video.webm",
+      "trace": "test-results/artifacts/insurance-планувальник-і-а-20fd7-криття-«Insurance-Verified»-chromium/trace.zip",
+      "asserted": true,
+      "vision": {
+        "met": true,
+        "readable": true,
+        "notes": "На кадрі 1 (одразу після збереження) видно зелену плашку «Insurance status saved.» і рядок «Insurance: Verified» з вибраним Verified. На кадрі 2 (після повторного відкриття картки Client Six) у шапці видно «Scheduler One», а рядок «Insurance: Verified» присутній; плашки немає, що відповідає очікуванню, але саме відсутність ?notice= у адресі з кадру не видно, тому це не оцінюю."
+      },
+      "agentModel": "claude-haiku-5-5",
+      "agentVerdicts": {
+        "claude-haiku-5-5": "PASS",
+        "claude-sonnet-5-5": null
+      },
+      "escalated": false,
+      "quotesVerified": [
+        {
+          "quote": "Insurance status saved.",
+          "onPage": true
+        },
+        {
+          "quote": "Insurance: Verified",
+          "onPage": true
+        },
+        {
+          "quote": "Scheduler One",
+          "onPage": true
+        },
+        {
+          "quote": "Insurance: Verified",
+          "onPage": true
+        }
+      ],
+      "verdict": "PASS",
+      "factoryGate": "PASS",
+      "rule": "R6: перевірки, агент і цитати збігаються",
+      "playwrightMs": 4941,
+      "reviewCostUsd": 0.003,
+      "reviewWallMs": 8694
+    },
+    {
+      "id": "AC-INS-03",
+      "proof": "AC-INS-03",
+      "title": "AC-INS-03: admin1 змінює статус на «Private pay» — і admin1, і scheduler2 бачать «Insurance: Private pay»",
+      "screenshot": "docs/qa/uat/2026-11-09/frames/AC-INS-03-then-1.png",
+      "video": "test-results/artifacts/insurance-планувальник-і-а-104a2-ать-«Insurance-Private-pay»-chromium/video.webm",
+      "trace": "test-results/artifacts/insurance-планувальник-і-а-104a2-ать-«Insurance-Private-pay»-chromium/trace.zip",
+      "asserted": true,
+      "vision": {
+        "met": true,
+        "readable": true,
+        "notes": "На кадрі frame-then-1.png у шапці видно «Admin One» (роль Admin), а в секції Insurance — «Insurance: Private pay». На кадрі frame-then-2.png у шапці видно «Scheduler Two» (роль Scheduler), і той самий рядок «Insurance: Private pay». Обидві видимі частини «Тоді» підтверджено дослівно; статус у базі не оцінювався, бо він не з кадрів."
+      },
+      "agentModel": "claude-haiku-5-5",
+      "agentVerdicts": {
+        "claude-haiku-5-5": "PASS",
+        "claude-sonnet-5-5": null
+      },
+      "escalated": false,
+      "quotesVerified": [
+        {
+          "quote": "Admin One",
+          "onPage": true
+        },
+        {
+          "quote": "Insurance: Private pay",
+          "onPage": true
+        },
+        {
+          "quote": "Scheduler Two",
+          "onPage": true
+        },
+        {
+          "quote": "Insurance: Private pay",
+          "onPage": true
+        }
+      ],
+      "verdict": "PASS",
+      "factoryGate": "PASS",
+      "rule": "R6: перевірки, агент і цитати збігаються",
+      "playwrightMs": 5523,
+      "reviewCostUsd": 0.00302,
+      "reviewWallMs": 9561
+    },
+    {
+      "id": "AC-INS-04",
+      "proof": "AC-INS-04",
+      "title": "AC-INS-04: therapist1 бачить «Insurance: Not accepted» свого клієнта, змінити статус йому не запропоновано",
+      "screenshot": "docs/qa/uat/2026-11-09/frames/AC-INS-04-then-1.png",
+      "video": "test-results/artifacts/insurance-терапевт-AC-INS--f4e52-татус-йому-не-запропоновано-chromium/video.webm",
+      "trace": "test-results/artifacts/insurance-терапевт-AC-INS--f4e52-татус-йому-не-запропоновано-chromium/trace.zip",
+      "asserted": true,
+      "vision": {
+        "met": true,
+        "readable": true,
+        "notes": "На кадрі видно сторінку «Client Six» (картка Insurance) з рядком «Insurance: Not accepted» і користувачем «Therapist One» у шапці. У картці Insurance немає жодного вибору статусу та кнопки «Save», тож частина «змінити статус не запропоновано» підтверджується відсутністю елементів на кадрі."
+      },
+      "agentModel": "claude-haiku-5-5",
+      "agentVerdicts": {
+        "claude-haiku-5-5": "PASS",
+        "claude-sonnet-5-5": null
+      },
+      "escalated": false,
+      "quotesVerified": [
+        {
+          "quote": "Therapist One",
+          "onPage": true
+        },
+        {
+          "quote": "Insurance: Not accepted",
+          "onPage": true
+        }
+      ],
+      "verdict": "PASS",
+      "factoryGate": "PASS",
+      "rule": "R6: перевірки, агент і цитати збігаються",
+      "playwrightMs": 2242,
+      "reviewCostUsd": 0.00199,
+      "reviewWallMs": 6194
+    },
+    {
+      "id": "AC-INS-05",
+      "proof": "AC-INS-05",
+      "title": "AC-INS-05: therapist1 напряму, в обхід сторінок, не змінює статус — scheduler1 бачить «Insurance: Not accepted»",
+      "screenshot": "docs/qa/uat/2026-11-09/frames/AC-INS-05-then-1.png",
+      "video": "test-results/artifacts/insurance-терапевт-AC-INS--b4f8c-ть-«Insurance-Not-accepted»-chromium/video.webm",
+      "trace": "test-results/artifacts/insurance-терапевт-AC-INS--b4f8c-ть-«Insurance-Not-accepted»-chromium/trace.zip",
+      "asserted": true,
+      "vision": {
+        "met": true,
+        "readable": true,
+        "notes": "На кадрі сторінка картки Client Six (/clients/3ff863f6-…) у шапці видно «Scheduler One» з підписом «Scheduler», а в блоці Insurance — рядок «Insurance: Not accepted»; вибраний перемикач «Not accepted». Обидві видимі частини «Тоді» підтверджено дослівно. Частини про відхилену спробу і статус у базі не оцінювалися, бо вони не з кадрів."
+      },
+      "agentModel": "claude-haiku-5-5",
+      "agentVerdicts": {
+        "claude-haiku-5-5": "PASS",
+        "claude-sonnet-5-5": null
+      },
+      "escalated": false,
+      "quotesVerified": [
+        {
+          "quote": "Scheduler One",
+          "onPage": true
+        },
+        {
+          "quote": "Insurance: Not accepted",
+          "onPage": true
+        }
+      ],
+      "verdict": "PASS",
+      "factoryGate": "PASS",
+      "rule": "R6: перевірки, агент і цитати збігаються",
+      "playwrightMs": 3374,
+      "reviewCostUsd": 0.00201,
+      "reviewWallMs": 6126
+    },
+    {
+      "id": "AC-INS-06",
+      "proof": "AC-INS-06",
+      "title": "AC-INS-06: без входу картка за прямим посиланням — лише сторінка входу, а scheduler1 бачить «Insurance: Verified»",
+      "screenshot": "docs/qa/uat/2026-11-09/frames/AC-INS-06-then-1.png",
+      "video": "test-results/artifacts/insurance-планувальник-і-а-0b57c-бачить-«Insurance-Verified»-chromium/video.webm",
+      "trace": "test-results/artifacts/insurance-планувальник-і-а-0b57c-бачить-«Insurance-Verified»-chromium/trace.zip",
+      "asserted": true,
+      "vision": {
+        "met": true,
+        "readable": true,
+        "notes": "На першому кадрі видно лише форму входу (Email, Password, Sign in) без «Insurance» і «Client Six». На другому кадрі в шапці «Scheduler One», у картці Client Six є рядок «Insurance: Verified»."
+      },
+      "agentModel": "claude-sonnet-5-5",
+      "agentVerdicts": {
+        "claude-haiku-5-5": "NEEDS-HUMAN",
+        "claude-sonnet-5-5": "PASS"
+      },
+      "escalated": true,
+      "quotesVerified": [
+        {
+          "quote": "Sign in",
+          "onPage": true
+        },
+        {
+          "quote": "Email",
+          "onPage": true
+        },
+        {
+          "quote": "Password",
+          "onPage": true
+        },
+        {
+          "quote": "Sign in",
+          "onPage": true
+        },
+        {
+          "quote": "Therapy Scheduling",
+          "onPage": true
+        },
+        {
+          "quote": "Hold therapist slots for clients and confirm sessions.",
+          "onPage": true
+        },
+        {
+          "quote": "Scheduler One",
+          "onPage": true
+        },
+        {
+          "quote": "Insurance: Verified",
+          "onPage": true
+        }
+      ],
+      "verdict": "PASS",
+      "factoryGate": "PASS",
+      "rule": "R6: перевірки, агент і цитати збігаються",
+      "playwrightMs": 2463,
+      "reviewCostUsd": 0.05173,
+      "reviewWallMs": 23485
+    }
+  ],
+  "negativeControls": [],
+  "cleanup": {
+    "at": "2026-11-09T21:21:05.338Z",
+    "deleted": [],
+    "remaining": [],
+    "leftoverRequests": 0
+  }
+}
